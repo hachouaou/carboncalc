@@ -19,11 +19,11 @@ def get_user_selection_energie(data):
     total_co2 = 0
     options = list(data['french_name'])
     units = list(data['CO2'])
-    
+
     for idx, option in enumerate(options, 1):
         print(f"{idx}. {option} ({units[idx-1]} kgCO₂/unité)")
     print("0. Terminer la sélection")
-    
+
     while True:
         try:
             choice = int(input("Entrez le numéro de l'élément ou 0 pour terminer : "))
@@ -149,7 +149,7 @@ def main():
     total_energie = get_user_selection_energie(energie)
     total_equipements = get_user_selection_equipements(equipements)
     total_aliments, selected_categories = get_user_selection_aliments(aliments)
-    
+
     total_co2 = total_aliments + total_equipements + total_energie
 
     print("\n=== Résultats de votre Empreinte Carbone ===")
