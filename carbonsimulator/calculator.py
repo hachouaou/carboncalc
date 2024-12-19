@@ -15,6 +15,9 @@ def load_data():
     return aliments, equipements, energie
 
 def get_user_selection_energie(data):
+    """
+    Retourne le total de co2 émis par l'utilisateur en fonction de l'énergie qu'il utilise.
+    """
     print("\nSélectionnez le type d'énergie et entrez la quantité correspondante :")
     total_co2 = 0
     options = list(data['french_name'])
@@ -39,7 +42,9 @@ def get_user_selection_energie(data):
     return total_co2
 
 def get_user_selection_aliments(data):
-
+    """
+    Retourne le total de co2 émis par l'utilisateur en fonction des aliments qu'il utilise.
+    """
     total_co2 = 0
     selected_categories = []
     while True:
@@ -94,6 +99,9 @@ def get_user_selection_aliments(data):
     return total_co2, selected_categories
 
 def get_user_selection_equipements(data):
+    """
+    Retourne le total de co2 émis par l'utilisateur en fonction des équipements qu'il utilise.
+    """
     print("\n=== Sélection des Équipements ===")
     total_co2 = 0
     options = list(data['nom'])
@@ -117,6 +125,9 @@ def get_user_selection_equipements(data):
     return total_co2
 
 def plot_pie_charts(aliments, total_aliments, total_equipements, total_energie, selected_categories):
+    """
+    Affiche 2 pie plots pour montrer le portions de CO2 de l'utilisateur.
+    """
     #1er camembert : portion de chaque total
     labels_totals = ['Aliments', 'Equipements', "Energie"]
     values_totals = [total_aliments, total_equipements, total_energie]
@@ -142,6 +153,7 @@ def plot_pie_charts(aliments, total_aliments, total_equipements, total_energie, 
 
     plt.tight_layout()
     plt.show()
+
 def main():
     print("=== Bienvenue dans le Calculateur d'Empreinte Carbone ===")
     aliments, equipements, energie = load_data()
